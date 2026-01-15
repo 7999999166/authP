@@ -4,11 +4,20 @@
   var tax = $state(false);
   var otherCharges = $state(false);
   var dispatchDetails = $state(false);
+  async function googleSignin() {
+
+  await axios({
+   method: 'get',
+   url: 'https://strapijan-production.up.railway.app/api/connect/google',
+   })
+  .then( function (response) { console.log ( response.data.data )  });
+ 
+  }
 </script>
 
 <div>
   <Prep name={"John"} />
-  
+  <button class="btn btn-primary ms-4" onclick={googleSignin}>Google Signin</button>
   <div class="row p-2">
     <div class="col-4 d-flex flex-column">
       <div class="form-check" style:height="40px" style:align-content="center">
