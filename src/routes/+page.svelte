@@ -8,7 +8,8 @@
 
   await axios({
    method: 'get',
-   url: 'https://strapijan-production.up.railway.app/api/connect/google',
+   url: 'https://strapijan-production.up.railway.app/api/connect/google?redirect=https://authypoi.netlify.app/auth/callback',
+
    })
   .then( function (response) { console.log ( response.data.data )  });
  
