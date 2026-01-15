@@ -4,15 +4,8 @@
   var tax = $state(false);
   var otherCharges = $state(false);
   var dispatchDetails = $state(false);
-  async function googleSignin() {
-
-  await axios({
-   method: 'get',
-   url: 'https://strapijan-production.up.railway.app/api/connect/google?redirect=https://authypoi.netlify.app/auth/callback',
-
-   })
-  .then( function (response) { console.log ( response.data.data )  });
- 
+  function googleSignin() {
+   window.location.href = "https://strapijan-production.up.railway.app/api/connect/google?redirect=https://authypoi.netlify.app/auth/callback"
   }
 </script>
 
