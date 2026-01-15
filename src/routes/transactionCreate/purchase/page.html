@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Purchase Entry Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#03045e', // deep blue
+            },
+            fontFamily: {
+              sans: ["Roboto", "sans-serif"],
+            },
+            borderRadius: {
+              'md': '0.375rem',
+            }
+          },
+        },
+      };
+    </script>
+<style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #caf0f8;
+        }
+    </style>
+</head>
+<body class="bg-[#caf0f8] text-gray-900">
+<div class="max-w-7xl mx-auto p-6">
+<h1 class="text-2xl font-bold text-primary mb-6">Purchase Entry Form</h1>
+<div class="border border-gray-300 p-6 mb-6">
+<div class="grid grid-cols-12 gap-x-6 gap-y-4">
+<div class="col-span-12 md:col-span-3">
+<label class="block text-sm font-medium text-gray-700 mb-2" for="purchase-no">Purchase No</label>
+<input class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="purchase-no" type="text" value="Auto Generated"/>
+</div>
+<div class="col-span-12 md:col-span-3">
+<label class="block text-sm font-medium text-gray-700 mb-2" for="voucher-date">Voucher Date</label>
+<div class="relative">
+<input class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 pr-10" id="voucher-date" type="text" value="16 November 2025"/>
+<span class="material-icons absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-lg">calendar_today</span>
+</div>
+</div>
+<div class="col-span-12 md:col-span-3">
+<label class="block text-sm font-medium text-gray-700 mb-2" for="supplier-invoice-no">Supplier Invoice No.</label>
+<input class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="supplier-invoice-no" type="text"/>
+</div>
+<div class="col-span-12 md:col-span-3">
+<label class="block text-sm font-medium text-gray-700 mb-2" for="place-of-supply">Place Of Supply</label>
+<div class="relative">
+<select class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none" id="place-of-supply">
+<option>Delhi</option>
+</select>
+<span class="material-icons absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">arrow_drop_down</span>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6">
+<label class="block text-sm font-medium text-gray-700 mb-2" for="purchase-account">Purchase Account</label>
+<input class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="purchase-account" type="text" value="Purchase"/>
+</div>
+<div class="col-span-12 md:col-span-6">
+<label class="block text-sm font-medium text-gray-700 mb-2" for="supplier-cash">Supplier/Cash</label>
+<input class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="supplier-cash" type="text"/>
+<span class="text-xs text-gray-500">balance</span>
+</div>
+<div class="col-span-12 md:col-span-6">
+<div class="flex items-center space-x-4 h-full">
+<div class="flex items-center gap-2">
+<span class="material-icons text-red-600 text-lg">location_on</span>
+<input checked="" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" id="local" name="location" type="radio"/>
+<label class="text-sm font-medium text-gray-700" for="local">Local</label>
+</div>
+<div class="flex items-center gap-2">
+<input class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" id="interstate" name="location" type="radio"/>
+<label class="text-sm font-medium text-gray-700" for="interstate">Interstate</label>
+</div>
+<input class="w-28 bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" type="text" value="DEFAULT"/>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6">
+<label class="block text-sm font-medium text-gray-700 mb-2" for="due-date">Due Date</label>
+<div class="relative">
+<input class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 pr-10" id="due-date" type="text" value="16 November 2025"/>
+<span class="material-icons absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-lg">calendar_today</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border border-gray-300 p-6 mb-6">
+<div class="flex justify-between items-start text-xs text-gray-500 mb-4">
+<p>Press ENTER to move forward</p>
+<p>DELETE: To Delete Row, Shift+UP/Down: To Rearrange Items</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<div class="flex items-center gap-2">
+<label class="text-sm font-medium text-gray-700 whitespace-nowrap" for="f9-item">F9: Item</label>
+<input class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="f9-item" type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<label class="text-sm font-medium text-gray-700 whitespace-nowrap" for="f10-service">F10: Service</label>
+<input class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="f10-service" type="text"/>
+</div>
+</div>
+<div class="flex space-x-4 text-sm font-medium mb-4">
+<span class="text-blue-600">Units Left: 0</span>
+<span class="text-blue-600">Alt+F1: Warehouse</span>
+<span class="text-blue-600">Alt+F2: Item History</span>
+</div>
+<div class="overflow-x-auto border border-gray-300 rounded-md">
+<table class="min-w-full divide-y divide-gray-300">
+<thead class="bg-gray-50">
+<tr>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Item</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Warehouse</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">QTY</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Units</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rate</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Per</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Value</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+</tr>
+</thead>
+<tbody class="bg-white divide-y divide-gray-200">
+<tr>
+<td class="text-center py-10 text-gray-500" colspan="8">No items added</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex justify-end items-center mt-4 space-x-2">
+<label class="text-sm font-medium text-gray-700" for="amount">Amount</label>
+<input class="w-36 text-right bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="amount" type="text" value="0.00"/>
+</div>
+</div>
+<div class="border border-gray-300 p-6 mb-20">
+<div class="grid grid-cols-12 gap-x-6">
+<div class="col-span-12 md:col-span-5">
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<input class="rounded-md border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4" id="discount" type="checkbox"/>
+<label class="text-sm font-medium text-gray-700" for="discount">Discount</label>
+</div>
+<div class="flex items-center gap-2">
+<input class="rounded-md border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4" id="tax" type="checkbox"/>
+<label class="text-sm font-medium text-gray-700" for="tax">Tax</label>
+</div>
+<div class="flex items-center gap-2">
+<input class="rounded-md border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4" id="other-charges" type="checkbox"/>
+<label class="text-sm font-medium text-gray-700" for="other-charges">Other Charges</label>
+</div>
+</div>
+<div class="mt-4">
+<label class="block text-sm font-medium text-gray-700 mb-1" for="narration">Narration</label>
+<textarea class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="narration" rows="3"></textarea>
+<span class="text-xs text-gray-500">Ctrl+Enter for next line</span>
+</div>
+<div class="flex items-center gap-2 mt-3">
+<input class="rounded-md border-gray-300 text-indigo-600 focus:ring-indigo-500 h-4 w-4" id="dispatch" type="checkbox"/>
+<label class="text-sm font-medium text-gray-700" for="dispatch">Dispatch</label>
+</div>
+</div>
+<div class="col-span-12 md:col-span-3"></div>
+<div class="col-span-12 md:col-span-4 flex flex-col justify-between items-end">
+<div class="w-full max-w-xs space-y-3">
+<div class="flex items-center justify-between gap-2">
+<label class="text-sm font-medium text-gray-700" for="round-off">Round Off</label>
+<input class="w-32 text-right bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="round-off" type="text" value="0.00"/>
+</div>
+<div class="flex items-center justify-between gap-2">
+<label class="text-sm font-bold text-gray-700" for="total-amount">Total Amount</label>
+<input class="w-32 text-right font-bold bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="total-amount" type="text" value="0.00"/>
+</div>
+</div>
+<div class="border border-gray-300 p-4 mt-4 rounded-md w-full max-w-xs">
+<label class="block text-sm font-medium text-gray-700">Discount &amp; Tax</label>
+<div class="flex items-center gap-2 mt-2">
+<input checked="" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" id="on-total" name="discount-tax" type="radio"/>
+<label class="text-sm font-medium text-gray-700" for="on-total">On Total</label>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<input class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" id="per-item" name="discount-tax" type="radio"/>
+<label class="text-sm font-medium text-gray-700" for="per-item">Per Item</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-[#caf0f8] border-t border-gray-400">
+<div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
+<button class="bg-white text-gray-700 px-4 py-2 border border-gray-400 rounded-md text-sm font-medium hover:bg-gray-50">Ctrl+Q: Exit</button>
+<div class="flex space-x-2">
+<button class="bg-white text-gray-700 px-4 py-2 border border-gray-400 rounded-md text-sm font-medium hover:bg-gray-50">Ctrl+F12: Save &amp; Payment</button>
+<button class="bg-white text-gray-700 px-4 py-2 border border-gray-400 rounded-md text-sm font-medium hover:bg-gray-50">Alt+F12: Save &amp; View</button>
+<button class="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90">
+<span>F12:Save</span>
+</button>
+</div>
+</div>
+</div>
+
+</body></html>

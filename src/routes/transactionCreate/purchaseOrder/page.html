@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Purchase Order Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<style type="text/tailwindcss">
+    @layer base {
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+    }
+  </style>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#03045e",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-[#caf0f8] text-gray-900">
+<div class="max-w-7xl mx-auto p-6">
+<h1 class="text-2xl font-bold text-primary mb-6">Purchase Order Form</h1>
+<div class="border border-gray-300 p-6 mb-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<div class="grid grid-cols-3 items-center gap-2 mb-3">
+<label class="col-span-1 text-sm font-medium text-gray-700" for="po-no">Purchase Order No:</label>
+<input class="col-span-2 w-full text-sm bg-white border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="po-no" readonly="" type="text" value="Auto Generated"/>
+</div>
+<div class="grid grid-cols-3 items-center gap-2 mb-3">
+<label class="col-span-1 text-sm font-medium text-gray-700" for="record-date">Record Date</label>
+<div class="relative col-span-2 w-full">
+<input class="w-full text-sm bg-white border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="record-date" type="text" value="16 November 2025"/>
+<span class="material-icons absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-lg pointer-events-none">calendar_today</span>
+</div>
+</div>
+<div class="grid grid-cols-3 items-start gap-2">
+<label class="col-span-1 text-sm font-medium text-gray-700" for="supplier">Supplier/Creditor</label>
+<div class="col-span-2 w-full">
+<input class="w-full text-sm bg-white border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="supplier" type="text"/>
+<p class="text-xs text-gray-500 mt-1">balance</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="border border-gray-300 p-6 mb-6">
+<p class="text-xs text-gray-500 mb-4">Press ENTER to move forward &amp; SHIFT+ENTER to move back.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
+<div>
+<label class="text-sm font-medium text-gray-700 block mb-2" for="inventory-item">F9: Inventory Item</label>
+<input class="w-full text-sm bg-white border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="inventory-item" type="text"/>
+<p class="text-xs text-gray-500 mt-1">Press ENTER key to add item.</p>
+</div>
+<div class="flex items-center gap-2">
+<label class="text-sm font-medium text-gray-700 whitespace-nowrap" for="service-item">F10: Service</label>
+<input class="w-full text-sm bg-white border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="service-item" type="text"/>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between items-center text-xs mb-2">
+<div class="flex items-center space-x-4 text-blue-600">
+<span>Units Left: 0</span>
+<a class="hover:underline" href="#">Alt+F2: Item History</a>
+<a class="hover:underline" href="#">View Photo</a>
+</div>
+<div class="text-xs text-gray-500">
+          Press DELETE key to remove item row.
+        </div>
+</div>
+<div class="overflow-x-auto border border-gray-300 rounded-md">
+<table class="min-w-full divide-y divide-gray-300">
+<thead class="bg-gray-50">
+<tr>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-2/5" scope="col">Item</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[10%]" scope="col">QTY</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[10%]" scope="col">Rate</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[10%]" scope="col">Value</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">Description</th>
+</tr>
+</thead>
+<tbody class="bg-white divide-y divide-gray-200">
+<tr>
+<td class="py-2 px-3 h-48 text-center text-gray-500 text-sm" colspan="5"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
+<div class="md:col-span-8 space-y-4">
+<div class="flex items-center gap-2">
+<input class="h-4 w-4 rounded text-indigo-600 border-gray-300 focus:ring-indigo-500" id="discount" type="checkbox"/>
+<label class="text-sm font-medium text-gray-700" for="discount">Discount %</label>
+</div>
+<div class="flex items-center gap-2">
+<input class="h-4 w-4 rounded text-indigo-600 border-gray-300 focus:ring-indigo-500" id="tax" type="checkbox"/>
+<label class="text-sm font-medium text-gray-700" for="tax">Tax</label>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="text-sm font-medium text-gray-700 block mb-1" for="narration">Narration</label>
+<textarea class="w-full text-sm bg-white border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="narration" rows="3"></textarea>
+<span class="text-xs text-gray-500">Ctrl-Enter for next line</span>
+</div>
+<div>
+<label class="text-sm font-medium text-gray-700 block mb-1" for="terms">Terms Conditions</label>
+<textarea class="w-full text-sm bg-white border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="terms" rows="3"></textarea>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 flex flex-col justify-between items-end">
+<div class="w-full max-w-xs space-y-3">
+<div class="flex items-center gap-2">
+<label class="text-sm font-medium text-gray-700 flex-1 text-right" for="amount">Amount</label>
+<input class="w-32 text-sm bg-gray-100 border border-gray-300 rounded-md px-3 py-2 text-right" id="amount" readonly="" type="text" value="0"/>
+</div>
+<div class="flex items-center gap-2">
+<label class="text-sm font-medium text-gray-700 flex-1 text-right" for="round-off">Round Off</label>
+<input class="w-32 text-sm bg-white border border-gray-300 rounded-md px-3 py-2 text-right focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="round-off" type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<label class="text-sm font-medium text-gray-700 flex-1 text-right" for="total-amount">total amount</label>
+<input class="w-32 text-sm bg-gray-100 border border-gray-300 rounded-md px-3 py-2 text-right font-semibold" id="total-amount" readonly="" type="text" value="0"/>
+</div>
+</div>
+<div class="border border-gray-300 p-4 rounded-md mt-4 w-full max-w-xs">
+<p class="text-sm font-medium text-gray-700 mb-2">Tax</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<input checked="" class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500" id="tax-total" name="tax-type" type="radio"/>
+<label class="text-sm font-medium text-gray-700" for="tax-total">On Total</label>
+</div>
+<div class="flex items-center gap-2">
+<input class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500" id="tax-item" name="tax-type" type="radio"/>
+<label class="text-sm font-medium text-gray-700" for="tax-item">Per Item</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="border-t border-gray-400 pt-4 flex justify-between items-center">
+<button class="text-sm font-medium text-gray-700 bg-white border border-gray-400 rounded-md px-4 py-2 hover:bg-gray-50">Ctrl+Q: Exit</button>
+<div class="flex space-x-2">
+<button class="text-sm font-medium text-gray-700 bg-white border border-gray-400 rounded-md px-4 py-2 hover:bg-gray-50">Alt+F12: Save &amp; View</button>
+<button class="text-sm font-medium text-white bg-[#03045e] rounded-md px-4 py-2 hover:bg-opacity-90">F12:Save</button>
+</div>
+</footer>
+</div>
+
+</body></html>

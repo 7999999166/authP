@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Entry Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+            --page-bg: #caf0f8;
+            --primary-action-bg: #03045e;
+            --primary-text: #023047;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--page-bg);
+        }
+        .form-input {
+            @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 bg-white px-3 py-2 text-sm;
+        }
+        .form-label {
+            @apply block text-sm font-medium text-gray-700;
+        }
+        .btn {
+            @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
+        }
+        .btn-primary {
+            @apply bg-[var(--primary-action-bg)] text-white hover:bg-opacity-90 focus:ring-[var(--primary-action-bg)];
+        }
+        .btn-secondary {
+            @apply border border-gray-400 bg-white text-gray-700 hover:bg-gray-50 focus:ring-gray-400;
+        }
+    </style>
+</head>
+<body class="text-gray-900">
+<div class="max-w-7xl mx-auto p-6">
+<h1 class="text-2xl font-bold text-[var(--primary-text)] mb-6">Payment Entry Form</h1>
+<main>
+<div class="border border-gray-300 p-6 mb-6">
+<p class="text-xs text-gray-500 mb-4">Press ENTER to move forward &amp; SHIFT+ENTER to move back.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="space-y-2">
+<label class="form-label" for="payment-no">Payment No</label>
+<input class="form-input bg-gray-100 text-sm" id="payment-no" readonly="" type="text" value="Auto Generated"/>
+</div>
+<div class="space-y-2">
+<label class="form-label" for="voucher-date">Voucher Date</label>
+<div class="relative">
+<input class="form-input" id="voucher-date" type="text" value="16 November 2025"/>
+<span class="material-icons-outlined absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
+                                calendar_today
+                            </span>
+</div>
+</div>
+<div></div> 
+<div class="space-y-2">
+<label class="form-label" for="paid-from">Paid From</label>
+<input class="form-input" id="paid-from" type="text"/>
+<p class="text-xs text-blue-600">balance</p>
+</div>
+<div class="space-y-2">
+<label class="form-label" for="paid-to">F9: Paid To</label>
+<input class="form-input" id="paid-to" type="text"/>
+<p class="text-xs text-blue-600">balance</p>
+</div>
+</div>
+</div>
+<div class="border border-gray-300 p-4 mb-6">
+<p class="text-sm font-medium text-blue-600 mb-2">Press ENTER key to add.</p>
+<div class="overflow-x-auto rounded-md border border-gray-300">
+<table class="min-w-full divide-y divide-gray-300">
+<thead class="bg-gray-50">
+<tr>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">Account</th>
+<th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">Amount</th>
+</tr>
+</thead>
+<tbody class="bg-white divide-y divide-gray-200">
+<tr>
+<td class="px-3 py-2 whitespace-nowrap h-32 text-center" colspan="2">
+<span class="text-sm text-gray-500">No entries added.</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex justify-end items-center mt-4 gap-4">
+<label class="form-label font-bold" for="total">Total</label>
+<input class="w-32 rounded-md border-gray-300 shadow-sm bg-gray-100 px-3 py-2 text-sm text-right font-semibold" id="total" readonly="" type="text" value="0.00"/>
+</div>
+</div>
+<div class="border border-gray-300 p-6 mb-6">
+<div class="space-y-2">
+<label class="form-label" for="narration">Narration</label>
+<textarea class="form-input min-h-[80px]" id="narration" rows="3"></textarea>
+<p class="text-xs text-gray-500">Use Ctrl+Enter for next line</p>
+</div>
+</div>
+</main>
+<footer class="mt-6 pt-4 border-t border-gray-400 flex items-center justify-between">
+<div>
+<button class="btn btn-secondary">Ctrl+Q: Exit</button>
+</div>
+<div class="flex items-center gap-2">
+<button class="btn btn-secondary !p-2">
+<span class="material-icons-outlined text-base">calculate</span>
+</button>
+<button class="btn btn-secondary">Alt+F12: Save &amp; View</button>
+<button class="btn btn-primary">F12: Save</button>
+</div>
+</footer>
+</div>
+
+</body></html>

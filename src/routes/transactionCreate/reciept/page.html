@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Receipt Against Invoice Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #1d3557;
+            --primary-action-color: #03045e;
+            --page-background: #caf0f8;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-[--page-background] text-gray-800 text-sm">
+<div class="max-w-7xl mx-auto p-6">
+<h1 class="text-2xl font-bold text-[--primary-color] mb-6">Receipt Against Invoice Form</h1>
+<main>
+<div class="border border-gray-300 p-6 mb-6 bg-[--page-background]">
+<div class="flex justify-end mb-4">
+<p class="text-xs text-gray-500">Press ENTER to move forward</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+<div class="space-y-4">
+<div class="grid grid-cols-3 items-center gap-2">
+<label class="col-span-1 text-sm font-medium text-gray-700" for="receipt-no">Receipt No</label>
+<input class="col-span-2 w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="receipt-no" type="text" value="Auto Generated"/>
+</div>
+<div class="grid grid-cols-3 items-center gap-2">
+<label class="col-span-1 text-sm font-medium text-gray-700" for="voucher-date">Voucher Date</label>
+<div class="relative col-span-2 w-full">
+<input class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="voucher-date" type="text" value="16 November 2025"/>
+<span class="material-icons absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-base">calendar_today</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-3 items-start gap-2">
+<label class="col-span-1 text-sm font-medium text-gray-700 pt-2" for="received-into">Received into</label>
+<div class="col-span-2 w-full">
+<input class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="received-into" type="text"/>
+<span class="text-xs text-gray-500 ml-1">balance</span>
+</div>
+</div>
+<div class="grid grid-cols-3 items-start gap-2">
+<label class="col-span-1 text-sm font-medium text-gray-700 pt-2" for="received-from">Received From</label>
+<div class="col-span-2 w-full">
+<input class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="received-from" type="text"/>
+<span class="text-xs text-gray-500 ml-1">balance</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="border border-gray-300 p-6 mb-6 bg-[--page-background]">
+<div class="flex justify-between items-end mb-4">
+<button class="bg-white border border-gray-400 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50" type="button">Receipt against invoice</button>
+<div class="flex items-center space-x-2">
+<label class="shrink-0 text-sm font-medium text-gray-700" for="amount">Amount</label>
+<input class="w-32 bg-white border border-gray-300 rounded-md px-3 py-2 text-sm text-right focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="amount" type="text" value="0"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-6">
+<div class="space-y-4">
+<div class="flex items-center space-x-2">
+<input class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" id="discount" type="checkbox"/>
+<label class="text-sm font-medium text-gray-700" for="discount">Discount</label>
+</div>
+<div class="flex items-center space-x-2">
+<input class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" id="tax-deducted" type="checkbox"/>
+<label class="text-sm font-medium text-gray-700" for="tax-deducted">Tax Deducted</label>
+</div>
+<div>
+<label class="block mb-1 text-sm font-medium text-gray-700" for="narration">Narration</label>
+<textarea class="w-full bg-white border border-gray-300 rounded-md text-sm p-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="narration" rows="4"></textarea>
+<span class="text-xs text-gray-500 mt-1 block">Ctrl+Enter for next line</span>
+</div>
+</div>
+<div class="flex flex-col justify-end items-end mt-4 md:mt-0">
+<div class="flex items-center space-x-2">
+<label class="shrink-0 font-bold text-gray-700" for="total-amount">Total Amount</label>
+<input class="w-32 bg-white border border-gray-300 rounded-md px-3 py-2 text-sm text-right font-bold focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="total-amount" type="text" value="0.00"/>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-6 pt-4 border-t border-gray-400 flex justify-between items-center">
+<button class="bg-white border border-gray-400 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50" type="button">Ctrl+Q: Exit</button>
+<button class="bg-[--primary-action-color] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90" type="button">
+                F12:Save
+            </button>
+</footer>
+</div>
+
+</body></html>

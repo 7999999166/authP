@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Purchase Return</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#336699",
+              "background-light": "#caf0f8",
+              "background-dark": "#023047",
+              "btn-primary": "#03045e",
+            },
+            fontFamily: {
+              display: ["Roboto", "sans-serif"],
+              body: ["Roboto", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #e0e0e0;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #a0a0a0;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #808080;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #2d3748;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #718096;
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #a0aec0;
+      }
+      /* Input overrides */
+      input[type="text"],
+      input[type="number"],
+      select,
+      textarea {
+        border-radius: 0.375rem; /* rounded-md */
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-[#caf0f8] dark:bg-gray-900 text-gray-800 dark:text-gray-200 text-sm"
+  >
+    <div class="max-w-7xl mx-auto p-6 min-h-screen flex flex-col">
+      <!-- Header -->
+      <header class="mb-6">
+        <h1 class="text-2xl font-bold text-primary dark:text-white">
+          Purchase Return
+        </h1>
+      </header>
+
+      <main class="flex-grow flex flex-col gap-6">
+        <!-- Top Section -->
+        <div
+          class="border border-gray-300 dark:border-gray-600 p-6 rounded-md bg-transparent"
+        >
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4"
+          >
+            <!-- Debit Note No -->
+            <div class="grid grid-cols-3 gap-2 items-center">
+              <label
+                class="col-span-1 text-sm font-medium text-gray-700 dark:text-gray-300"
+                for="debitNoteNo"
+                >Debit Note No</label
+              >
+              <input
+                class="col-span-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                id="debitNoteNo"
+                readonly
+                type="text"
+                value="Auto Generated"
+              />
+            </div>
+
+            <!-- Voucher Date -->
+            <div class="grid grid-cols-3 gap-2 items-center">
+              <label
+                class="col-span-1 text-sm font-medium text-gray-700 dark:text-gray-300"
+                for="voucherDate"
+                >Voucher Date</label
+              >
+              <div class="col-span-2 relative">
+                <input
+                  class="w-full bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  id="voucherDate"
+                  type="text"
+                  value="16 November 2025"
+                />
+                <span
+                  class="material-icons absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 text-lg"
+                  >calendar_today</span
+                >
+              </div>
+            </div>
+
+            <!-- Supplier/Cash -->
+            <div class="grid grid-cols-3 gap-2 items-start">
+              <label
+                class="col-span-1 text-sm font-medium text-gray-700 dark:text-gray-300 pt-2"
+                for="supplier"
+                >Supplier/Cash</label
+              >
+              <div class="col-span-2">
+                <input
+                  class="w-full bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  id="supplier"
+                  type="text"
+                />
+                <span
+                  class="text-xs text-gray-500 dark:text-gray-400 block mt-1"
+                  >balance</span
+                >
+              </div>
+            </div>
+
+            <!-- Credit Account -->
+            <div class="grid grid-cols-3 gap-2 items-start">
+              <label
+                class="col-span-1 text-sm font-medium text-gray-700 dark:text-gray-300 pt-2"
+                for="creditAccount"
+                >Credit Account</label
+              >
+              <div class="col-span-2">
+                <input
+                  class="w-full bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  id="creditAccount"
+                  type="text"
+                  value="Purchases Return"
+                />
+                <span
+                  class="text-xs text-gray-500 dark:text-gray-400 block mt-1"
+                  >balance</span
+                >
+              </div>
+            </div>
+
+            <!-- Location Type -->
+            <div class="grid grid-cols-3 gap-2 items-center">
+              <label
+                class="col-span-1 text-sm font-medium text-gray-700 dark:text-gray-300"
+                >Location</label
+              >
+              <div class="col-span-2 flex items-center gap-4">
+                <div class="flex items-center gap-2">
+                  <input
+                    checked
+                    class="text-indigo-600 focus:ring-indigo-500 border-gray-300"
+                    id="local"
+                    name="locationType"
+                    type="radio"
+                  />
+                  <label
+                    class="text-sm font-medium text-gray-700 dark:text-gray-300"
+                    for="local"
+                    >Local</label
+                  >
+                </div>
+                <div class="flex items-center gap-2">
+                  <input
+                    class="text-indigo-600 focus:ring-indigo-500 border-gray-300"
+                    id="interstate"
+                    name="locationType"
+                    type="radio"
+                  />
+                  <label
+                    class="text-sm font-medium text-gray-700 dark:text-gray-300"
+                    for="interstate"
+                    >Interstate</label
+                  >
+                </div>
+                <input
+                  class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md border-gray-300 dark:border-gray-600 px-2 py-1 text-xs text-center w-20"
+                  readonly
+                  type="text"
+                  value="DEFAULT"
+                />
+              </div>
+            </div>
+
+            <!-- Place of Supply -->
+            <div class="grid grid-cols-3 gap-2 items-center">
+              <label
+                class="col-span-1 text-sm font-medium text-gray-700 dark:text-gray-300"
+                for="placeOfSupply"
+                >Place Of Supply</label
+              >
+              <select
+                class="col-span-2 w-full bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                id="placeOfSupply"
+              >
+                <option>Delhi</option>
+                <option>Mumbai</option>
+                <option>Kolkata</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Helper Text inside section -->
+          <div class="mt-4 text-center">
+            <span class="text-xs font-medium text-gray-500 dark:text-gray-400"
+              >Press ENTER to move forward</span
+            >
+          </div>
+        </div>
+
+        <!-- Item Entry & Table Section -->
+        <div
+          class="border border-gray-300 dark:border-gray-600 p-6 rounded-md bg-transparent flex flex-col flex-grow min-h-[400px]"
+        >
+          <!-- Item Inputs -->
+          <div
+            class="flex flex-col md:flex-row justify-between items-start gap-6 mb-4"
+          >
+            <div class="flex-grow w-full md:w-1/2">
+              <div class="flex items-center gap-2 mb-1">
+                <label
+                  class="text-sm font-medium text-gray-700 dark:text-gray-300 w-20"
+                  for="f9item"
+                  >F9: Item</label
+                >
+                <input
+                  class="flex-grow bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  id="f9item"
+                  type="text"
+                />
+              </div>
+              <div class="flex justify-between text-xs mt-1 pl-22">
+                <span class="text-gray-500 dark:text-gray-400"
+                  >Units Left: 0</span
+                >
+                <a
+                  class="text-blue-600 dark:text-blue-400 hover:underline"
+                  href="#"
+                  >Alt+F1: Warehouse</a
+                >
+              </div>
+              <div
+                class="mt-2 text-xs text-red-600 dark:text-red-400 font-medium"
+              >
+                Press ENTER key to add item.
+              </div>
+            </div>
+
+            <div class="flex-grow w-full md:w-1/2">
+              <div class="flex items-center gap-2 mb-1">
+                <label
+                  class="text-sm font-medium text-gray-700 dark:text-gray-300 w-24"
+                  for="f10service"
+                  >F10: Service</label
+                >
+                <input
+                  class="flex-grow bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  id="f10service"
+                  type="text"
+                />
+              </div>
+              <div
+                class="mt-2 text-xs text-red-600 dark:text-red-400 font-medium text-right"
+              >
+                DELETE: To Delete Row, Shift+UP/Down: To Rearrange Items
+              </div>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div
+            class="flex-grow overflow-x-auto border border-gray-300 dark:border-gray-600 rounded-md"
+          >
+            <table
+              class="w-full text-left divide-y divide-gray-200 dark:divide-gray-700"
+            >
+              <thead class="bg-gray-50 dark:bg-gray-700/50">
+                <tr>
+                  <th
+                    class="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                  >
+                    Item
+                  </th>
+                  <th
+                    class="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                  >
+                    Warehouse
+                  </th>
+                  <th
+                    class="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                  >
+                    QTY
+                  </th>
+                  <th
+                    class="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                  >
+                    Units
+                  </th>
+                  <th
+                    class="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                  >
+                    Rate
+                  </th>
+                  <th
+                    class="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                  >
+                    Per
+                  </th>
+                  <th
+                    class="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                  >
+                    Value
+                  </th>
+                  <th
+                    class="px-3 py-2 text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                  >
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700"
+              >
+                <tr>
+                  <td
+                    class="px-3 py-2 h-48 text-center text-gray-500 dark:text-gray-400"
+                    colspan="8"
+                  >
+                    No items added.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Options -->
+          <div class="space-y-3">
+            <button
+              class="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-md border border-gray-300 dark:border-gray-500 text-sm font-medium w-full md:w-auto text-left"
+            >
+              Set off against purchase
+            </button>
+
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center gap-2">
+                <input
+                  class="rounded text-indigo-600 focus:ring-indigo-500 border-gray-300"
+                  id="tax"
+                  type="checkbox"
+                />
+                <label
+                  class="text-sm font-medium text-gray-700 dark:text-gray-300"
+                  for="tax"
+                  >Tax</label
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="rounded text-indigo-600 focus:ring-indigo-500 border-gray-300"
+                  id="otherCharges"
+                  type="checkbox"
+                />
+                <label
+                  class="text-sm font-medium text-gray-700 dark:text-gray-300"
+                  for="otherCharges"
+                  >Other Charges</label
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="rounded text-indigo-600 focus:ring-indigo-500 border-gray-300"
+                  id="dispatch"
+                  type="checkbox"
+                />
+                <label
+                  class="text-sm font-medium text-gray-700 dark:text-gray-300"
+                  for="dispatch"
+                  >Dispatch</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Narration -->
+          <div class="flex flex-col gap-2">
+            <label
+              class="text-sm font-medium text-gray-700 dark:text-gray-300"
+              for="narration"
+              >Narration</label
+            >
+            <textarea
+              class="w-full bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              id="narration"
+              rows="4"
+            ></textarea>
+            <span class="text-xs text-gray-500 dark:text-gray-400"
+              >Ctrl+Enter for next line</span
+            >
+          </div>
+
+          <!-- Totals -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-end gap-4">
+              <label
+                class="text-sm font-medium text-gray-700 dark:text-gray-300"
+                for="amount"
+                >Amount</label
+              >
+              <input
+                class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-right w-32 font-medium"
+                id="amount"
+                readonly
+                type="text"
+                value="0"
+              />
+            </div>
+
+            <div
+              class="border border-gray-300 dark:border-gray-600 p-4 rounded-md"
+            >
+              <div class="flex items-center justify-between mb-3">
+                <label
+                  class="text-sm font-medium text-gray-700 dark:text-gray-300"
+                  for="roundOff"
+                  >Round Off</label
+                >
+                <input
+                  class="bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-right w-32 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  id="roundOff"
+                  type="text"
+                  value="0.00"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <label
+                  class="text-sm font-bold text-gray-700 dark:text-gray-300"
+                  for="totalAmount"
+                  >Total Amount</label
+                >
+                <input
+                  class="bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-right w-32 font-bold text-lg"
+                  id="totalAmount"
+                  readonly
+                  type="text"
+                  value="0.00"
+                />
+              </div>
+            </div>
+
+            <div
+              class="border border-gray-300 dark:border-gray-600 p-4 rounded-md"
+            >
+              <label
+                class="text-sm font-semibold text-gray-700 dark:text-gray-300 block mb-2"
+                >Discount &amp; Tax</label
+              >
+              <div class="flex gap-4">
+                <div class="flex items-center gap-2">
+                  <input
+                    checked
+                    class="text-indigo-600 focus:ring-indigo-500 border-gray-300"
+                    id="onTotal"
+                    name="discountType"
+                    type="radio"
+                  />
+                  <label
+                    class="text-sm text-gray-700 dark:text-gray-300"
+                    for="onTotal"
+                    >On Total</label
+                  >
+                </div>
+                <div class="flex items-center gap-2">
+                  <input
+                    class="text-indigo-600 focus:ring-indigo-500 border-gray-300"
+                    id="perItem"
+                    name="discountType"
+                    type="radio"
+                  />
+                  <label
+                    class="text-sm text-gray-700 dark:text-gray-300"
+                    for="perItem"
+                    >Per Item</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer Action Bar -->
+      <footer
+        class="mt-8 pt-4 border-t border-gray-400 dark:border-gray-600 flex justify-between items-center sticky bottom-0 bg-[#caf0f8] dark:bg-gray-900 z-10 p-4 -mx-6 -mb-6"
+      >
+        <button
+          class="bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 border border-gray-400 dark:border-gray-500 px-4 py-2 rounded-md text-sm font-medium transition-colors"
+        >
+          Ctrl+Q: Exit
+        </button>
+        <div class="flex gap-3">
+          <button
+            class="bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 border border-gray-400 dark:border-gray-500 px-4 py-2 rounded-md text-sm font-medium transition-colors"
+          >
+            Save & View
+          </button>
+          <button
+            class="bg-[#03045e] text-white hover:opacity-90 px-4 py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-opacity shadow-sm"
+          >
+            F12: Save
+            <span class="material-icons text-sm">chevron_right</span>
+          </button>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

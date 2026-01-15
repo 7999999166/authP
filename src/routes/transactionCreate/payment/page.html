@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Payment Against Purchases Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#336699", 
+              "background-light": "#caf0f8",
+              "background-dark": "#023047",
+              "btn-primary": "#03045e",
+            },
+            fontFamily: {
+              display: ["Roboto", "sans-serif"],
+              body: ["Roboto", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a0a0a0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #808080;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #2d3748;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #718096;
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #a0aec0;
+        }
+        /* Input overrides */
+        input[type="text"], input[type="number"], select, textarea {
+            border-radius: 0.375rem; /* rounded-md */
+        }
+    </style>
+</head>
+<body class="font-display bg-[#caf0f8] dark:bg-gray-900 text-gray-800 dark:text-gray-200 text-sm">
+
+<div class="max-w-7xl mx-auto p-6 min-h-screen flex flex-col">
+    
+    <!-- Header -->
+    <header class="mb-6">
+        <h1 class="text-2xl font-bold text-primary dark:text-white">Payment Against Purchases Form</h1>
+    </header>
+
+    <main class="flex-grow flex flex-col gap-6">
+        
+        <!-- Top Section -->
+        <div class="border border-gray-300 dark:border-gray-600 p-6 rounded-md bg-transparent">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                
+                <!-- Payment No -->
+                <div class="grid grid-cols-3 gap-2 items-center">
+                    <label class="col-span-1 text-sm font-medium text-gray-700 dark:text-gray-300" for="payment-no">Payment No</label>
+                    <input class="col-span-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="payment-no" readonly type="text" value="Auto Generated"/>
+                </div>
+
+                <!-- Voucher Date -->
+                <div class="grid grid-cols-3 gap-2 items-center">
+                    <label class="col-span-1 text-sm font-medium text-gray-700 dark:text-gray-300" for="voucher-date">Voucher Date</label>
+                    <div class="col-span-2 relative">
+                        <input class="w-full bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="voucher-date" type="text" value="16 November 2025"/>
+                        <span class="material-icons absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 text-lg">calendar_today</span>
+                    </div>
+                </div>
+
+                <!-- Paid To -->
+                <div class="grid grid-cols-3 gap-2 items-start">
+                    <label class="col-span-1 text-sm font-medium text-gray-700 dark:text-gray-300 pt-2" for="paid-to">Paid To</label>
+                    <div class="col-span-2">
+                        <input class="w-full bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="paid-to" type="text"/>
+                        <span class="text-xs text-gray-500 dark:text-gray-400 block mt-1">balance</span>
+                    </div>
+                </div>
+
+                <!-- Paid From -->
+                <div class="grid grid-cols-3 gap-2 items-start">
+                    <label class="col-span-1 text-sm font-medium text-gray-700 dark:text-gray-300 pt-2" for="paid-from">Paid From</label>
+                    <div class="col-span-2">
+                        <input class="w-full bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="paid-from" type="text"/>
+                        <span class="text-xs text-gray-500 dark:text-gray-400 block mt-1">balance</span>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Helper Text inside section -->
+            <div class="mt-4 text-center">
+                 <span class="text-xs font-medium text-gray-500 dark:text-gray-400">Press ENTER to move forward</span>
+            </div>
+        </div>
+
+        <!-- Middle Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Payment Type & Options -->
+            <div class="border border-gray-300 dark:border-gray-600 p-6 rounded-md bg-transparent space-y-4">
+                 <button class="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-md border border-gray-300 dark:border-gray-500 text-sm font-medium w-full text-left">Payment against purchases</button>
+                 
+                 <div class="flex flex-col gap-2">
+                    <div class="flex items-center gap-2">
+                        <input class="rounded text-indigo-600 focus:ring-indigo-500 border-gray-300" id="discount" type="checkbox"/>
+                        <label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="discount">Discount</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input class="rounded text-indigo-600 focus:ring-indigo-500 border-gray-300" id="tax-deducted" type="checkbox"/>
+                        <label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="tax-deducted">Tax Deducted</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Amount -->
+            <div class="border border-gray-300 dark:border-gray-600 p-6 rounded-md bg-transparent flex flex-col justify-center">
+                <div class="flex items-center justify-between gap-4">
+                    <label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="amount">Amount</label>
+                    <input class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-right w-48 font-medium" id="amount" readonly type="text" value="0"/>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+             <!-- Narration -->
+             <div class="col-span-2 flex flex-col gap-2">
+                <label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="narration">Narration</label>
+                <textarea class="w-full bg-white dark:bg-gray-800 rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" id="narration" rows="3"></textarea>
+                <span class="text-xs text-gray-500 dark:text-gray-400">Ctrl+Enter for next line</span>
+            </div>
+
+            <!-- Total Amount -->
+             <div class="flex items-end justify-end">
+                <div class="border border-gray-300 dark:border-gray-600 p-4 rounded-md w-full">
+                    <div class="flex items-center justify-between">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="total-amount">Total Amount</label>
+                        <input class="bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-md border-gray-300 dark:border-gray-600 px-3 py-2 text-right w-32 font-bold text-lg" id="total-amount" readonly type="text" value="0.00"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Action Bar -->
+    <footer class="mt-8 pt-4 border-t border-gray-400 dark:border-gray-600 flex justify-between items-center sticky bottom-0 bg-[#caf0f8] dark:bg-gray-900 z-10 p-4 -mx-6 -mb-6">
+        <button class="bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 border border-gray-400 dark:border-gray-500 px-4 py-2 rounded-md text-sm font-medium transition-colors">
+            Ctrl+Q: Exit
+        </button>
+        <div class="flex gap-3">
+            <button class="bg-[#03045e] text-white hover:opacity-90 px-4 py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-opacity shadow-sm">
+                F12: Save 
+                <span class="material-icons text-sm">chevron_right</span>
+            </button>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
