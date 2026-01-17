@@ -5,7 +5,7 @@
   var otherCharges = $state(false);
   var dispatchDetails = $state(false);
   function googleSignin() {
-   window.location.href = "https://strapifebs-production.up.railway.app/api/connect/google"
+   window.location.href = "https://strapifebs-production.up.railway.app/api/connect/google?prompt=consent"
   }
 </script>
 
