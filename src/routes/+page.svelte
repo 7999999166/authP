@@ -5,7 +5,7 @@
   var otherCharges = $state(false);
   var dispatchDetails = $state(false);
   function googleSignin() {
-   window.location.href = "https://strapifebs-production.up.railway.app/api/connect/google?redirect=https://authypoi.netlify.app/auth/callback"
+   window.location.href = "https://strapifebs-production.up.railway.app/api/connect/google"
   }
 </script>
 
