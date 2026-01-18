@@ -18,7 +18,7 @@
     const res = await fetch(
       "https://strapifebs-production.up.railway.app/api/auth/google/callback",
       {
-        method: "POST",
+        method: "GET",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id_token: idToken }),
       },
