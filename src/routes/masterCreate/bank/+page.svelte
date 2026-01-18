@@ -1,34 +1,36 @@
 <script>
-  import { onMount } from "svelte";
-  import { page } from "$app/stores";
+import { onMount } from "svelte";
+import { page } from "$app/stores";
 
-  let accessToken = $state("");
+let accessToken = $state("");
 
-  onMount(() => {
-    const searchParams = $page.url.searchParams;
-    accessToken = searchParams.get("access_token") || "";
-    console.log("Access Token:", accessToken);
-    handleGoogleResponse(accessToken);
+onMount(async () => {
+  const searchParams = $page.url.searchParams;
+  accessToken = searchParams.get("access_token") || "";
+  console.log("Access Token:", accessToken);
 
-  });
+  await handleGoogleResponse();
+});
 
-  async function handleGoogleResponse(response) {
-    const idToken = response; 
+async function handleGoogleResponse() {
+  if (!accessToken) return;
 
-    const res = await fetch(
-      "https://strapifebs-production.up.railway.app/api/auth/google/callback",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ access_token: idToken }),
-      },
-    );
+  const res = await fetch(
+    "https://strapifebs-production.up.railway.app/api/auth/google/callback",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ access_token: accessToken }),
+    }
+  );
 
-    const data = await res.json();
-    const { jwt, user } = data;
-    localStorage.setItem("jwt", jwt);
-    console.log("Logged in user:", user);
-  }
+  const data = await res.json();
+  const { jwt, user } = data;
+
+  localStorage.setItem("jwt", jwt);
+  console.log("Logged in user:", user);
+}
+
 
 </script>
 
