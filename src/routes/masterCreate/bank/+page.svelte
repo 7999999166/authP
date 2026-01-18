@@ -16,10 +16,11 @@
     const idToken = response; 
 
     const res = await fetch(
-      `https://strapifebs-production.up.railway.app/api/connect/google/callback?access_token=${idToken}`,
+      "https://strapifebs-production.up.railway.app/api/connect/google/callback",
       {
-        method: "GET",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ access_token: idToken }),
       },
     );
 
