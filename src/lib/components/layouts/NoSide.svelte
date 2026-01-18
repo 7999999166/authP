@@ -16,8 +16,8 @@ let {children} = $props();
                     <div class="d-flex flex-column justify-content-center p-2">
                         <h5 class="text-center h-75 pb-1 company-name">Company Name</h5>
                         <div class="btn-group" role="group" aria-label="Default button group">
-                            <button type="button" class="btn theme-nav-btn">Dashboard</button>
-                            <button type="button" class="btn theme-nav-btn">Masters</button>
+                            <a type="button" href="/masterCreate/bank" class="btn theme-nav-btn">Dashboard</a>
+                            <a type="button" href="/" class="btn theme-nav-btn">Masters</a>
                             <button type="button" class="btn theme-nav-btn">Transactions</button>
                             <button type="button" class="btn theme-nav-btn">Reports</button>
                             <button type="button" class="btn theme-nav-btn">AI Assistant</button>

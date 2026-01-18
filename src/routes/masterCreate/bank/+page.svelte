@@ -1,4 +1,34 @@
 <script>
+  import { onMount } from "svelte";
+  import { page } from "$app/stores";
+
+  let accessToken = $state("");
+
+  onMount(() => {
+    const searchParams = $page.url.searchParams;
+    accessToken = searchParams.get("access_token") || "";
+    console.log("Access Token:", accessToken);
+    handleGoogleResponse(accessToken);
+
+  });
+
+  async function handleGoogleResponse(response) {
+    const idToken = response; 
+
+    const res = await fetch(
+      "https://strapifebs-production.up.railway.app/api/auth/google/callback",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_token: idToken }),
+      },
+    );
+
+    const data = await res.json();
+    const { jwt, user } = data;
+    localStorage.setItem("jwt", jwt);
+    console.log("Logged in user:", user);
+  }
 
 </script>
 
@@ -112,7 +142,6 @@
                 pattern="[0-9]{(9, 18)}"
               />
             </div>
-          
           </div>
 
           <!-- Full Width -->
